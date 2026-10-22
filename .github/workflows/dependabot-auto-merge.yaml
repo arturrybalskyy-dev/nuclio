@@ -38,7 +38,7 @@ jobs:
     if: >-
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      github.event.workflow_run.actor.login == 'arturrybalskyy-dev' &&
       github.event.workflow_run.head_repository.full_name == github.repository &&
       github.event.workflow_run.pull_requests[0].base.ref == 'development' &&
       (
@@ -63,7 +63,7 @@ jobs:
               'targeting development': pr.base.ref === 'development',
               'a single commit': commits.length === 1,
               'the commit tested by CI': pr.head.sha === process.env.TESTED_SHA,
-              'authored by Dependabot': commit?.author?.login === 'dependabot[bot]',
+              'authored by Dependabot': commit?.author?.login === 'arturrybalskyy-dev',
               'with a verified signature': commit?.commit.verification.verified === true,
             }
 
